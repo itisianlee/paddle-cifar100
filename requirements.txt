@@ -1,0 +1,2 @@
+paddlepaddle-gpu>=2.0.0
+visualdl>=2.1.1
