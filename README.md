@@ -18,10 +18,10 @@ Some nets might get the best result from other hyperparameters, You can set up o
 |  network  | params | top1 Acc | top5 Acc | hyperparameters | total epoch |
 | :-------: | :----: | :------: | :------: | :-------------: | :---------: |
 | resnet18 |  11.2M  |  0.7681   |  0.9345   |   default  |     300     |
-| resnet34 |  11.2M  |  0.7835   |  0.9439  |   default  |     300     |
-| resnet50 |  11.2M  |  0.8020   |  0.9530  |   default  |     300     |
-| resnet101 |  11.2M  |  0.8016   |  0.9540  |   default  |     300     |
-| resnet152 |  11.2M  |  0.8083   |  0.9549  |   default  |     300     |
+| resnet34 |  21.3M  |  0.7835   |  0.9439  |   default  |     300     |
+| resnet50 |  23.8M  |  0.8020   |  0.9530  |   default  |     300     |
+| resnet101 |  42.8M  |  0.8016   |  0.9540  |   default  |     300     |
+| resnet152 |  58.5M  |  0.8083   |  0.9549  |   default  |     300     |
 ## Test curve
 `csv_dir` download from VisualDL scalar
 ![Test curve](.github/acc_top1_curve.png)

@@ -42,7 +42,10 @@ def main(args):
 
     net = build_classifier(args.classifier)
     model = paddle.Model(net)
-
+    FLOPs = paddle.flops(net, [1, 3, 32, 32], print_detail=True)
+    print(FLOPs)
+    exit()
+    
     lrs = build_lrscheduler(args.lrscheduler, args.lr, args.warm_up_step, T_max=args.epochs)
     optim = build_optim(name='momentum', parameters=net.parameters(), learning_rate=lrs, 
                         momentum=args.momentum, weight_decay=args.weight_decay)

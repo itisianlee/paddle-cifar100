@@ -233,7 +233,7 @@ class ResNet(nn.Layer):
 
 
 def _resnet(arch, Block, depth, num_classes=100, **kwargs):
-    model = ResNet(Block, depth, **kwargs)
+    model = ResNet(Block, depth, num_classes=num_classes, **kwargs)
     return model
 
 
