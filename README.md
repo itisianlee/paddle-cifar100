@@ -30,7 +30,7 @@ Some nets might get the best result from other hyperparameters, You can set up o
 
 # Usage
 ## Training & Evaluation
-Training and Evaluation are put together, using PaddlePaddle HighAPI(hapi). To train baseline PaddlePaddle-cifar100-resnet18 on a single gpu for 200 epochs run:
+Training and Evaluation are put together, using PaddlePaddle HighAPI(hapi). To train baseline PaddlePaddle-cifar100-resnet18 on a single gpu for 300 epochs run:
 > python3 main.py
 
 ## Visualization
