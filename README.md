@@ -11,6 +11,7 @@ To explore the limit performance of opensource classifier on [CIFAR100](https://
 
 # Repo dynamic
 ## Informations
+- 2021.04.03: Releases the training of the ViT(vision transformer) variants model
 - 2021.03.30: Releases the training of the ResNet series model
 
 ## Model results
@@ -41,3 +42,4 @@ VisualDL display details:
 ![visuadlpage](.github/visualdl.png)
 # Relevant papers
 ResNet: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385v1)
+Transformer: [Attention is not all you need: pure attention loses rank doubly exponentially with depth](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2103.03404v1)
