@@ -296,18 +296,24 @@ class VisionTransformer(nn.Layer):
 
 
 @classifier.register_module()
-def vit_p4_d6_h8_e128(**kwargs):
-    model = VisionTransformer(patch_size=4, embed_dim=128, depth=6, num_heads=8, **kwargs)
+def vit_p4_d6_h12_e384(**kwargs):
+    model = VisionTransformer(patch_size=4, embed_dim=384, depth=6, num_heads=12, **kwargs)
     return model
 
 
 @classifier.register_module()
-def vit_p4_d6_h8_e256(**kwargs):
-    model = VisionTransformer(patch_size=4, embed_dim=256, depth=6, num_heads=8, **kwargs)
+def vit_p4_d6_h12_e768(**kwargs):
+    model = VisionTransformer(patch_size=4, embed_dim=768, depth=6, num_heads=12, **kwargs)
     return model
 
 
 @classifier.register_module()
-def vit_p4_d6_h8_e512(**kwargs):
-    model = VisionTransformer(patch_size=4, embed_dim=512, depth=6, num_heads=8, **kwargs)
+def vit_p4_d12_h12_e384(**kwargs):
+    model = VisionTransformer(patch_size=4, embed_dim=384, depth=12, num_heads=12, **kwargs)
+    return model
+
+
+@classifier.register_module()
+def vit_p4_d12_h12_e768(**kwargs):
+    model = VisionTransformer(patch_size=4, embed_dim=768, depth=12, num_heads=12, **kwargs)
     return model
