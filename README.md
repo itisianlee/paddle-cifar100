@@ -11,7 +11,7 @@ To explore the limit performance of opensource classifier on [CIFAR100](https://
 
 # Repo dynamic
 ## Informations
-- 2021.04.03: Releases the training of the ViT(vision transformer) variants model
+- 2021.04.04: Releases the training of the ViT(vision transformer) variants model
 - 2021.03.30: Releases the training of the ResNet series model
 
 ## Model results
@@ -23,6 +23,10 @@ Some nets might get the best result from other hyperparameters, You can set up o
 | resnet50 |  23.8M  |  0.8020   |  0.9530  |   default  |     300     |
 | resnet101 |  42.8M  |  0.8016   |  0.9540  |   default  |     300     |
 | resnet152 |  58.5M  |  0.8083   |  0.9549  |   default  |     300     |
+| vit_p4_d6_h12_e384 |10.7M |0.5689| 0.8370| default|300|
+| vit_p4_d6_h12_e192|2.7M|0.5428|0.8207|default|300|
+|vit_p4_d12_h12_e384|21.4M|0.5570|0.8296|default|300|
+|vit_p4_d12_h12_e192|5.4M|0.5375|0.8201|default|300|
 ## Test curve
 `csv_dir` download from VisualDL scalar
 ![Test curve](.github/acc_top1_curve.png)
@@ -41,5 +45,5 @@ Training and Evaluation are put together, using PaddlePaddle HighAPI(hapi). To t
 VisualDL display details:
 ![visuadlpage](.github/visualdl.png)
 # Relevant papers
-ResNet: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385v1)
-Transformer: [Attention is not all you need: pure attention loses rank doubly exponentially with depth](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2103.03404v1)
+- ResNet: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385v1)
+- Transformer: [Attention is not all you need: pure attention loses rank doubly exponentially with depth](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2103.03404v1)
