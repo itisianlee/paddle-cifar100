@@ -41,6 +41,8 @@ def build_transform():
     CIFAR_STD = [0.1942, 0.1918, 0.1958]
     train_transforms = Compose([
         RandomCrop(32, padding=4),
+        ContrastTransform(0.1),
+        BrightnessTransform(0.1),
         RandomHorizontalFlip(),
         RandomRotation(15),
         ToArray(),
