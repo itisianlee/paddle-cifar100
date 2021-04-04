@@ -1,4 +1,5 @@
 import os
+import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -13,7 +14,7 @@ plt.figure(figsize=(15, 10))
 for file_name in os.listdir(args.csv_dir):
     if not file_name.startswith('visualdl'):
         continue
-    label_name = file_name.split('_')[1].split('-')[0]
+    label_name = file_name.split('-')[2].lstrip('logs_')
     path = os.path.join(args.csv_dir, file_name)
     x = []
     y = []
