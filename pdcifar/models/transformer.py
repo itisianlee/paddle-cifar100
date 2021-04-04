@@ -302,8 +302,8 @@ def vit_p4_d6_h12_e384(**kwargs):
 
 
 @classifier.register_module()
-def vit_p4_d6_h12_e768(**kwargs):
-    model = VisionTransformer(patch_size=4, embed_dim=768, depth=6, num_heads=12, **kwargs)
+def vit_p4_d6_h12_e192(**kwargs):
+    model = VisionTransformer(patch_size=4, embed_dim=192, depth=6, num_heads=12, **kwargs)
     return model
 
 
@@ -314,6 +314,6 @@ def vit_p4_d12_h12_e384(**kwargs):
 
 
 @classifier.register_module()
-def vit_p4_d12_h12_e768(**kwargs):
-    model = VisionTransformer(patch_size=4, embed_dim=768, depth=12, num_heads=12, **kwargs)
+def vit_p4_d12_h12_e192(**kwargs):
+    model = VisionTransformer(patch_size=4, embed_dim=192, depth=12, num_heads=12, **kwargs)
     return model
