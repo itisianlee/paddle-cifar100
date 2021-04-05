@@ -1,0 +1,18 @@
+CLASSIFIER: mobilenet_v1
+YAML: common.yml
+COMMON:
+  workers: 4
+  batch_size: 128
+  weight_decay: 5e-4
+  epochs: 300
+  data_path: data/cifar-100-python.tar.gz
+  logdir: logs
+  verbose: 1
+  seed: 2021
+OPTIMIZER:
+  name: momentum
+  params:
+    momentum: 0.9
+SCHEDULER:
+  name: cosine
+  warm_up_step: 2000
