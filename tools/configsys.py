@@ -364,7 +364,7 @@ class CfgNode(dict):
         """Load a config from a YAML file or a Python source file."""
         _, file_extension = os.path.splitext(file_obj.name)
         if file_extension in _YAML_EXTS:
-            return cls._load_cfg_from_yaml_str(file_obj.read())
+            return cls(yaml.safe_load(file_obj))
         elif file_extension in _PY_EXTS:
             return cls._load_cfg_py_source(file_obj.name)
         else:
@@ -374,9 +374,10 @@ class CfgNode(dict):
             )
 
     @classmethod
-    def _load_cfg_from_yaml_str(cls, str_obj):
+    def _load_cfg_from_yaml_str(cls, yaml_str):
         """Load a config from a YAML string encoding."""
-        cfg_as_dict = yaml.safe_load(str_obj)
+        with open(yaml_str) as f:
+            cfg_as_dict = yaml.safe_load(f)
         return cls(cfg_as_dict)
 
     @classmethod
