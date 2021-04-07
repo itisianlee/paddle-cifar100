@@ -1,5 +1,7 @@
 CLASSIFIER: 
-  name: mobilenetv1_l
+  name: mobilenetv1
+  params:
+    scale: 1.0
 COMMON:
   workers: 4
   batch_size: 128
