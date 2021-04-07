@@ -228,68 +228,8 @@ def _mobilenet(arch, **kwargs):
 
 
 @classifier.register_module()
-def mobilenetv1_l(scale=1.0, **kwargs):
+def mobilenetv1(scale=1.0, **kwargs):
     """MobileNetV1 large
-    
-    Args:
-        scale: (float): scale of channels in each layer. Default: 1.0.
-    Examples:
-        .. code-block:: python
-            from paddle.vision.models import mobilenet_v1
-            # build model
-            model = mobilenet_v1()
-            # build model and load imagenet pretrained weight
-            # model = mobilenet_v1(pretrained=True)
-            # build mobilenet v1 with scale=0.5
-            model = mobilenet_v1(scale=0.5)
-    """
-    model = _mobilenet('mobilenetv1_' + str(scale), scale=scale, **kwargs)
-    return model
-
-
-@classifier.register_module()
-def mobilenetv1_m(scale=0.75, **kwargs):
-    """MobileNetV1 medium
-    
-    Args:
-        scale: (float): scale of channels in each layer. Default: 1.0.
-    Examples:
-        .. code-block:: python
-            from paddle.vision.models import mobilenet_v1
-            # build model
-            model = mobilenet_v1()
-            # build model and load imagenet pretrained weight
-            # model = mobilenet_v1(pretrained=True)
-            # build mobilenet v1 with scale=0.5
-            model = mobilenet_v1(scale=0.5)
-    """
-    model = _mobilenet('mobilenetv1_' + str(scale), scale=scale, **kwargs)
-    return model
-
-
-@classifier.register_module()
-def mobilenetv1_s(scale=0.5, **kwargs):
-    """MobileNetV1 small
-    
-    Args:
-        scale: (float): scale of channels in each layer. Default: 1.0.
-    Examples:
-        .. code-block:: python
-            from paddle.vision.models import mobilenet_v1
-            # build model
-            model = mobilenet_v1()
-            # build model and load imagenet pretrained weight
-            # model = mobilenet_v1(pretrained=True)
-            # build mobilenet v1 with scale=0.5
-            model = mobilenet_v1(scale=0.5)
-    """
-    model = _mobilenet('mobilenetv1_' + str(scale), scale=scale, **kwargs)
-    return model
-
-
-@classifier.register_module()
-def mobilenetv1_t(scale=0.25, **kwargs):
-    """MobileNetV1 tiny
     
     Args:
         scale: (float): scale of channels in each layer. Default: 1.0.
