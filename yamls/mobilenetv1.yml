@@ -1,6 +1,5 @@
 CLASSIFIER: 
-  name: mobilenet_v1
-YAML: common.yml
+  name: mobilenetv1_l
 COMMON:
   workers: 4
   batch_size: 128
