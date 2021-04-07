@@ -16,17 +16,17 @@ To explore the limit performance of opensource classifier on [CIFAR100](https://
 
 ## Model results
 Some nets might get the best result from other hyperparameters, You can set up other hyperparameters for training.
-|  network  | params | top1 Acc | top5 Acc | hyperparameters | total epoch |
-| :-------: | :----: | :------: | :------: | :-------------: | :---------: |
-| resnet18 |  11.2M  |  0.7681   |  0.9345   |   default  |     300     |
-| resnet34 |  21.3M  |  0.7835   |  0.9439  |   default  |     300     |
-| resnet50 |  23.8M  |  0.8020   |  0.9530  |   default  |     300     |
-| resnet101 |  42.8M  |  0.8016   |  0.9540  |   default  |     300     |
-| resnet152 |  58.5M  |  0.8083   |  0.9549  |   default  |     300     |
-| vit_p4_d6_h12_e384 |10.7M |0.5689| 0.8370| default|300|
-| vit_p4_d6_h12_e192|2.7M|0.5428|0.8207|default|300|
-|vit_p4_d12_h12_e384|21.4M|0.5570|0.8296|default|300|
-|vit_p4_d12_h12_e192|5.4M|0.5375|0.8201|default|300|
+|  network  | params | top1 Acc | top5 Acc | yaml | 
+| :-------: | :----: | :------: | :------: | :-------------: | 
+| resnet18 |  11.2M  |  0.7681   |  0.9345   |   common.yml  |  
+| resnet34 |  21.3M  |  0.7835   |  0.9439  |   common.yml  |
+| resnet50 |  23.8M  |  0.8020   |  0.9530  |   common.yml  | 
+| resnet101 |  42.8M  |  0.8016   |  0.9540  |   common.yml  |
+| resnet152 |  58.5M  |  0.8083   |  0.9549  |   common.yml  |
+| vit_p4_d6_h12_e384 |10.7M |0.5689| 0.8370| vit.yml|
+| vit_p4_d6_h12_e192|2.7M|0.5428|0.8207|vit.yml|
+|vit_p4_d12_h12_e384|21.4M|0.5570|0.8296|vit.yml|
+|vit_p4_d12_h12_e192|5.4M|0.5375|0.8201|vit.yml|
 ## Test curve
 `csv_dir` download from VisualDL scalar
 ![Test curve](.github/acc_top1_curve.png)
