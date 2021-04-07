@@ -6,4 +6,7 @@ def build_classifier(cfg):
     if cfg.name not in classifier:
         raise KeyError(f'{cfg.name} is not in the {classifier.name} registry')
     net = classifier.get(cfg.name)
-    return net()
+    if 'params' in cfg:
+        return net(**cfg.params)
+    else:
+        return net()
