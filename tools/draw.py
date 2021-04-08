@@ -11,7 +11,7 @@ args = parser.parse_args()
 # `csv_dir` download from VisualDL scalar
 # csv_dir = 'visualdl-scalar-eval_acc_top1/'
 plt.figure(figsize=(15, 10))
-for file_name in os.listdir(args.csv_dir):
+for file_name in sorted(os.listdir(args.csv_dir)):
     if not file_name.startswith('visualdl'):
         continue
     label_name = file_name.split('-')[2].lstrip('logs_')
