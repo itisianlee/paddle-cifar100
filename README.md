@@ -10,7 +10,8 @@
 To explore the limit performance of opensource classifier on [CIFAR100](https://www.cs.toronto.edu/~kriz/cifar.html) with [PaddlePaddle](https://github.com/PaddlePaddle/Paddle).
 
 # Repo dynamic
-## Informations
+## Relate update
+- 2021.04.08: Releases the training of the MobileNet v2 model
 - 2021.04.07: Releases the training of the MobileNet v1 model
 - 2021.04.04: Releases the training of the ViT(vision transformer) variants model
 - 2021.03.30: Releases the training of the ResNet series model
@@ -28,7 +29,14 @@ Some nets might get the best result from other hyperparameters, You can set up o
 | vit_p4_d6_h12_e192|2.7M|0.5428|0.8207|vit.yml|
 |vit_p4_d12_h12_e384|21.4M|0.5570|0.8296|vit.yml|
 |vit_p4_d12_h12_e192|5.4M|0.5375|0.8201|vit.yml|
-|mobilenetv1|3.3M|0.6607|0.8792|mobilenetv1.yml|
+|mobilenetv1 x1.0|3.3M|0.6607|0.8792|mobilenetv1.yml|
+|mobilenetv1 x0.75|1.9M|0.6481|0.8646|mobilenetv1.yml|
+|mobilenetv1 x0.5|0.88M|0.6095|0.8493|mobilenetv1.yml|
+|mobilenetv1 x0.25|0.24M|0.5645|0.8292|mobilenetv1.yml|
+|mobilenetv2 x1.0|0.24M|0.677|0.8912|mobilenetv2.yml|
+|mobilenetv2 x0.75|1.5M|0.6685|0.8874|mobilenetv2.yml|
+|mobilenetv2 x0.5|0.8M|0.6265|0.8631|mobilenetv2.yml|
+|mobilenetv2 x0.25|0.38M|0.5631|0.831|mobilenetv2.yml|
 ## Test curve
 `csv_dir` download from VisualDL scalar
 ![Test curve](.github/acc_top1_curve.png)
@@ -38,7 +46,7 @@ Some nets might get the best result from other hyperparameters, You can set up o
 # Usage
 ## Training & Evaluation
 Training and Evaluation are put together, using PaddlePaddle HighAPI(hapi). To train baseline PaddlePaddle-cifar100-resnet18 on a single gpu for 300 epochs run:
-> python3 main.py
+> python3 main.py -c resnet18 -y yamls/common.yml
 
 ## Visualization
 [VisualDL](https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/03_VisualDL/visualdl.html#visualdl): VisualDL is the PaddlePaddle visual analysis tool.
@@ -49,3 +57,5 @@ VisualDL display details:
 # Relevant papers
 - ResNet: [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385v1)
 - Transformer: [Attention is not all you need: pure attention loses rank doubly exponentially with depth](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2103.03404v1)
+- MobileNets: [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/abs/1704.04861)
+- MobileNetV2: [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/abs/1801.04381)
