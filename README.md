@@ -39,9 +39,9 @@ Some nets might get the best result from other hyperparameters, You can set up o
 |mobilenetv2 x0.5|0.8M|0.6265|0.8631|mobilenetv2.yml|
 |mobilenetv2 x0.25|0.38M|0.5631|0.831|mobilenetv2.yml|
 |vgg19 BN|39.3M|0.716|0.8997|vgg.yml|
-|vgg16 BN|28.5M|0.7174|0.9053|vgg.yml|
+|vgg16 BN|34.0M|0.7174|0.9053|vgg.yml|
 |vgg13 BN|28.7M|0.7133|0.9029|vgg.yml|
-|vgg11 BN|34.0M|0.6773|0.8808|vgg.yml|
+|vgg11 BN|28.5M|0.6773|0.8808|vgg.yml|
 
 ## Test curve
 `csv_dir` download from VisualDL scalar
@@ -65,3 +65,4 @@ VisualDL display details:
 - Transformer: [Attention is not all you need: pure attention loses rank doubly exponentially with depth](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2103.03404v1)
 - MobileNets: [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/abs/1704.04861)
 - MobileNetV2: [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/abs/1801.04381)
+- VGG: [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)
