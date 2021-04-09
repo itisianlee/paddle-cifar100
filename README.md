@@ -11,6 +11,7 @@ To explore the limit performance of opensource classifier on [CIFAR100](https://
 
 # Repo dynamic
 ## Relate update
+- 2021.04.09: Releases the training of the vgg model
 - 2021.04.08: Releases the training of the MobileNet v2 model
 - 2021.04.07: Releases the training of the MobileNet v1 model
 - 2021.04.04: Releases the training of the ViT(vision transformer) variants model
@@ -37,6 +38,11 @@ Some nets might get the best result from other hyperparameters, You can set up o
 |mobilenetv2 x0.75|1.5M|0.6685|0.8874|mobilenetv2.yml|
 |mobilenetv2 x0.5|0.8M|0.6265|0.8631|mobilenetv2.yml|
 |mobilenetv2 x0.25|0.38M|0.5631|0.831|mobilenetv2.yml|
+|vgg19 BN|39.3M|0.716|0.8997|vgg.yml|
+|vgg16 BN|28.5M|0.7174|0.9053|vgg.yml|
+|vgg13 BN|28.7M|0.7133|0.9029|vgg.yml|
+|vgg11 BN|34.0M|0.6773|0.8808|vgg.yml|
+
 ## Test curve
 `csv_dir` download from VisualDL scalar
 ![Test curve](.github/acc_top1_curve.png)
