@@ -1,0 +1,24 @@
+CLASSIFIER: 
+  name: shufflenetv2
+  params:
+    scale: 1.0
+    act: relu
+COMMON:
+  workers: 4
+  batch_size: 128
+  epochs: 300
+  data_path: data/cifar-100-python.tar.gz
+  logdir: logs
+  verbose: 1
+  seed: 2021
+OPTIMIZER:
+  name: momentum
+  params:
+    momentum: 0.9
+    weight_decay: 0.00005
+SCHEDULER:
+  name: cosine
+  warm_up_step: 2000
+  params:
+    learning_rate: 0.1
+    T_max: 300
