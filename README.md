@@ -11,6 +11,7 @@ To explore the limit performance of opensource classifier on [CIFAR100](https://
 
 # Repo dynamic
 ## Relate update
+- 2021.04.16: Releases the training of the shufflenet series model
 - 2021.04.09: Releases the training of the vgg model
 - 2021.04.08: Releases the training of the MobileNet v2 model
 - 2021.04.07: Releases the training of the MobileNet v1 model
@@ -42,6 +43,9 @@ Some nets might get the best result from other hyperparameters, You can set up o
 |vgg16 BN|34.0M|0.7174|0.9053|vgg.yml|
 |vgg13 BN|28.7M|0.7133|0.9029|vgg.yml|
 |vgg11 BN|28.5M|0.6773|0.8808|vgg.yml|
+|shufflenet v1 groups3|1.04M|0.6966|0.8975|shufflenetv1.yml|
+|shufflenet v2 scale1.0 swish|1.37M|0.7116|0.9116|shufflenetv2.yml|
+|shufflenet v2 scale1.0 relu|1.37M|0.6924|0.8952|shufflenetv2.yml|
 
 ## Test curve
 `csv_dir` download from VisualDL scalar
@@ -66,3 +70,5 @@ VisualDL display details:
 - MobileNets: [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/abs/1704.04861)
 - MobileNetV2: [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/abs/1801.04381)
 - VGG: [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)
+- ShuffleNet: [ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices](https://arxiv.org/abs/1707.01083)
+- ShuffleNet V2: [ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design](https://arxiv.org/abs/1807.11164)
