@@ -5,3 +5,4 @@ from .mobilenetv2 import mobilenetv2
 from .vgg import *
 from .shufflenetv1 import shufflenetv1
 from .shufflenetv2 import shufflenetv2
+from .swin_transformer import swin_transformer
