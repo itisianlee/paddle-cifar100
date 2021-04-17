@@ -28,5 +28,5 @@ for file_name in sorted(os.listdir(args.csv_dir)):
 plt.title('Cifar100 classification Acc@top1')
 plt.xlabel('epoch')
 plt.ylabel('Acc@top1')
-plt.legend()
+plt.legend(loc='upper left')
 plt.savefig('.github/acc_top1_curve.png')
