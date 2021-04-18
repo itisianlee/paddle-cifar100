@@ -1,5 +1,5 @@
 CLASSIFIER: 
-  name: vit
+  name: swin_transformer
 COMMON:
   workers: 4
   batch_size: 128
