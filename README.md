@@ -46,6 +46,7 @@ Some nets might get the best result from other hyperparameters, You can set up o
 |shufflenet v1 groups3|1.04M|0.6966|0.8975|shufflenetv1.yml|
 |shufflenet v2 scale1.0 swish|1.37M|0.7116|0.9116|shufflenetv2.yml|
 |shufflenet v2 scale1.0 relu|1.37M|0.6924|0.8952|shufflenetv2.yml|
+|swin transformer tiny|6.93M|0.5303|0.7833|swin_transformer.yml|
 
 ## Test curve
 `csv_dir` download from VisualDL scalar
