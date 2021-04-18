@@ -537,5 +537,6 @@ class SwinTransformer(nn.Layer):
 
 @classifier.register_module()
 def swin_transformer(**kwargs):
-    model = SwinTransformer(img_size=32, num_classes=100, patch_size=4, embed_dim=48, depths=[2, 2, 6, 2], **kwargs)
+    model = SwinTransformer(img_size=32, num_classes=100, patch_size=4, embed_dim=48, depths=[2, 2, 6, 2], 
+                            num_heads=[2, 4, 8, 12], **kwargs)
     return model
