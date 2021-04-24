@@ -11,6 +11,7 @@ To explore the limit performance of opensource classifier on [CIFAR100](https://
 
 # Repo dynamic
 ## Relate update
+- 2021.04.24: Releases the training of the ResNeXt model
 - 2021.04.16: Releases the training of the shufflenet series model
 - 2021.04.09: Releases the training of the vgg model
 - 2021.04.08: Releases the training of the MobileNet v2 model
