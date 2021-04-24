@@ -47,6 +47,8 @@ Some nets might get the best result from other hyperparameters, You can set up o
 |shufflenet v2 scale1.0 swish|1.37M|0.7116|0.9116|shufflenetv2.yml|
 |shufflenet v2 scale1.0 relu|1.37M|0.6924|0.8952|shufflenetv2.yml|
 |swin transformer tiny|6.93M|0.5303|0.7833|swin_transformer.yml|
+|resnext50 32x4d|23.2M|0.7744|0.934|common.yml|
+|resnext101 32x8d|87.1M|0.7938|0.9407|common.yml|
 
 ## Test curve
 `csv_dir` download from VisualDL scalar
@@ -74,3 +76,4 @@ VisualDL display details:
 - ShuffleNet: [ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices](https://arxiv.org/abs/1707.01083)
 - ShuffleNet V2: [ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design](https://arxiv.org/abs/1807.11164)
 - Swin Transformer: [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/pdf/2103.14030.pdf)
+- ResneXt: [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/abs/1611.05431)
