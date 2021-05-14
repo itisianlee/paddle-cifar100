@@ -1,6 +1,7 @@
 import warnings
 
 import paddle.nn as nn
+from .builder import classifier
 
 # Paper suggests 0.9997 momentum, for TensorFlow. Equivalent PyTorch momentum is
 # 1.0 - tensorflow.
@@ -25,15 +26,16 @@ class _InvertedResidual(nn.Layer):
         self.apply_residual = (in_ch == out_ch and stride == 1)
         self.layers = nn.Sequential(
             # Pointwise
-            nn.Conv2D(in_ch, mid_ch, 1, bias=False),
+            nn.Conv2D(in_ch, mid_ch, 1, bias_attr=False),
             nn.BatchNorm2D(mid_ch, momentum=bn_momentum),
             nn.ReLU(),
             # Depthwise
-            nn.Conv2D(mid_ch, mid_ch, kernel_size, padding=kernel_size // 2, stride=stride, groups=mid_ch, bias=False),
+            nn.Conv2D(mid_ch, mid_ch, kernel_size, padding=kernel_size // 2, stride=stride, 
+                      groups=mid_ch, bias_attr=False),
             nn.BatchNorm2D(mid_ch, momentum=bn_momentum),
             nn.ReLU(),
             # Linear pointwise. Note that there's no activation.
-            nn.Conv2D(mid_ch, out_ch, 1, bias=False),
+            nn.Conv2D(mid_ch, out_ch, 1, bias_attr=False),
             nn.BatchNorm2D(out_ch, momentum=bn_momentum))
 
     def forward(self, input):
@@ -92,14 +94,14 @@ class MNASNet(nn.Layer):
         depths = _get_depths(alpha)
         layers = [
             # First layer: regular conv.
-            nn.Conv2D(3, depths[0], 3, padding=1, stride=2, bias=False),
+            nn.Conv2D(3, depths[0], 3, padding=1, stride=2, bias_attr=False),
             nn.BatchNorm2D(depths[0], momentum=_BN_MOMENTUM),
             nn.ReLU(),
             # Depthwise separable, no skip.
-            nn.Conv2D(depths[0], depths[0], 3, padding=1, stride=1, groups=depths[0], bias=False),
+            nn.Conv2D(depths[0], depths[0], 3, padding=1, stride=1, groups=depths[0], bias_attr=False),
             nn.BatchNorm2D(depths[0], momentum=_BN_MOMENTUM),
             nn.ReLU(),
-            nn.Conv2D(depths[0], depths[1], 1, padding=0, stride=1, bias=False),
+            nn.Conv2D(depths[0], depths[1], 1, padding=0, stride=1, bias_attr=False),
             nn.BatchNorm2D(depths[1], momentum=_BN_MOMENTUM),
             # MNASNet blocks: stacks of inverted residuals.
             _stack(depths[1], depths[2], 3, 2, 3, 3, _BN_MOMENTUM),
@@ -109,7 +111,7 @@ class MNASNet(nn.Layer):
             _stack(depths[5], depths[6], 5, 2, 6, 4, _BN_MOMENTUM),
             _stack(depths[6], depths[7], 3, 1, 6, 1, _BN_MOMENTUM),
             # Final mapping to classifier input.
-            nn.Conv2D(depths[7], 1280, 1, padding=0, stride=1, bias=False),
+            nn.Conv2D(depths[7], 1280, 1, padding=0, stride=1, bias_attr=False),
             nn.BatchNorm2D(1280, momentum=_BN_MOMENTUM),
             nn.ReLU(),
         ]
@@ -134,13 +136,13 @@ class MNASNet(nn.Layer):
             # unaffected.
             depths = _get_depths(self.alpha)
             v1_stem = [
-                nn.Conv2D(3, 32, 3, padding=1, stride=2, bias=False),
+                nn.Conv2D(3, 32, 3, padding=1, stride=2, bias_attr=False),
                 nn.BatchNorm2D(32, momentum=_BN_MOMENTUM),
                 nn.ReLU(),
-                nn.Conv2D(32, 32, 3, padding=1, stride=1, groups=32, bias=False),
+                nn.Conv2D(32, 32, 3, padding=1, stride=1, groups=32, bias_attr=False),
                 nn.BatchNorm2D(32, momentum=_BN_MOMENTUM),
                 nn.ReLU(),
-                nn.Conv2D(32, 16, 1, padding=0, stride=1, bias=False),
+                nn.Conv2D(32, 16, 1, padding=0, stride=1, bias_attr=False),
                 nn.BatchNorm2D(16, momentum=_BN_MOMENTUM),
                 _stack(16, depths[2], 3, 2, 3, 3, _BN_MOMENTUM),
             ]
@@ -161,37 +163,11 @@ class MNASNet(nn.Layer):
             state_dict, prefix, local_metadata, strict, missing_keys, unexpected_keys, error_msgs)
 
 
-def mnasnet0_5(**kwargs: Any):
-    r"""MNASNet with depth multiplier of 0.5 from
+@classifier.register_module()
+def mnasnet(alpha=1.0, **kwargs):
+    r"""MNASNet with depth multiplier of alpha from
     `"MnasNet: Platform-Aware Neural Architecture Search for Mobile"
     <https://arxiv.org/pdf/1807.11626.pdf>`_.
     """
-    model = MNASNet(0.5, **kwargs)
-    return model
-
-
-def mnasnet0_75(**kwargs):
-    r"""MNASNet with depth multiplier of 0.75 from
-    `"MnasNet: Platform-Aware Neural Architecture Search for Mobile"
-    <https://arxiv.org/pdf/1807.11626.pdf>`_.
-    """
-    model = MNASNet(0.75, **kwargs)
-    return model
-
-
-def mnasnet1_0(**kwargs):
-    r"""MNASNet with depth multiplier of 1.0 from
-    `"MnasNet: Platform-Aware Neural Architecture Search for Mobile"
-    <https://arxiv.org/pdf/1807.11626.pdf>`_.
-    """
-    model = MNASNet(1.0, **kwargs)
-    return model
-
-
-def mnasnet1_3(**kwargs):
-    r"""MNASNet with depth multiplier of 1.3 from
-    `"MnasNet: Platform-Aware Neural Architecture Search for Mobile"
-    <https://arxiv.org/pdf/1807.11626.pdf>`_.
-    """
-    model = MNASNet(1.3, **kwargs)
+    model = MNASNet(alpha=alpha, **kwargs)
     return model

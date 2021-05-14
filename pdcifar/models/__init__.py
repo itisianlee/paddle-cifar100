@@ -7,3 +7,4 @@ from .shufflenetv1 import shufflenetv1
 from .shufflenetv2 import shufflenetv2
 from .swin_transformer import swin_transformer
 from .resnet2 import resnext50_32x4d, resnext101_32x8d
+from .mnasnet import mnasnet
