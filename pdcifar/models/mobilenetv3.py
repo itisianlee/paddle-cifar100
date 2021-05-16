@@ -4,7 +4,7 @@ from functools import partial
 from paddle import nn
 from paddle.nn import functional as F
 
-from paddlevision.models.mobilenetv2 import _make_divisible, ConvBNActivation
+# from  import _make_divisible, ConvBNActivation
 
 
 class SqueezeExcitation(nn.Layer):
