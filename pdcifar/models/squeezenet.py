@@ -1,6 +1,8 @@
 import paddle
 import paddle.nn as nn
 
+from .builder import classifier
+
 
 class Fire(nn.Layer):
 
@@ -95,6 +97,7 @@ def _squeezenet(version, **kwargs):
     return model
 
 
+@classifier.register_module()
 def squeezenet1_0(**kwargs):
     r"""SqueezeNet model architecture from the `"SqueezeNet: AlexNet-level
     accuracy with 50x fewer parameters and <0.5MB model size"
@@ -107,6 +110,7 @@ def squeezenet1_0(**kwargs):
     return _squeezenet('1_0', **kwargs)
 
 
+@classifier.register_module()
 def squeezenet1_1(**kwargs):
     r"""SqueezeNet 1.1 model from the `official SqueezeNet repo
     <https://github.com/DeepScale/SqueezeNet/tree/master/SqueezeNet_v1.1>`_.
