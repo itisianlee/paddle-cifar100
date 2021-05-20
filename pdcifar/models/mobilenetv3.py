@@ -3,6 +3,7 @@ import paddle
 from functools import partial
 from paddle import nn
 from paddle.nn import functional as F
+from .builder import classifier
 
 from .mobilenetv2 import _make_divisible, ConvBNReLU
 
@@ -228,6 +229,7 @@ def _mobilenet_v3_model(arch, inverted_residual_setting, last_channel, **kwargs)
     return model
 
 
+@classifier.register_module()
 def mobilenet_v3_large(**kwargs):
     """
     Constructs a large MobileNetV3 architecture from
@@ -242,6 +244,7 @@ def mobilenet_v3_large(**kwargs):
     return _mobilenet_v3_model(arch, inverted_residual_setting, last_channel, **kwargs)
 
 
+@classifier.register_module()
 def mobilenet_v3_small(**kwargs):
     """
     Constructs a small MobileNetV3 architecture from
