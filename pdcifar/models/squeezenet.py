@@ -40,7 +40,7 @@ class SqueezeNet(nn.Layer):
         self.num_classes = num_classes
         if version == '1_0':
             self.features = nn.Sequential(
-                nn.Conv2D(3, 96, kernel_size=7, stride=2),
+                nn.Conv2D(3, 96, kernel_size=3, stride=1),
                 nn.ReLU(),
                 nn.MaxPool2D(kernel_size=3, stride=2, ceil_mode=True),
                 Fire(96, 16, 64, 64),
@@ -56,7 +56,7 @@ class SqueezeNet(nn.Layer):
             )
         elif version == '1_1':
             self.features = nn.Sequential(
-                nn.Conv2D(3, 64, kernel_size=3, stride=2),
+                nn.Conv2D(3, 64, kernel_size=3, stride=1),
                 nn.ReLU(),
                 nn.MaxPool2D(kernel_size=3, stride=2, ceil_mode=True),
                 Fire(64, 16, 64, 64),
