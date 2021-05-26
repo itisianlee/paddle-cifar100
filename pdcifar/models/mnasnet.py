@@ -94,7 +94,7 @@ class MNASNet(nn.Layer):
         depths = _get_depths(alpha)
         layers = [
             # First layer: regular conv.
-            nn.Conv2D(3, depths[0], 3, padding=1, stride=2, bias_attr=False),
+            nn.Conv2D(3, depths[0], 3, padding=1, stride=1, bias_attr=False),
             nn.BatchNorm2D(depths[0], momentum=_BN_MOMENTUM),
             nn.ReLU(),
             # Depthwise separable, no skip.
