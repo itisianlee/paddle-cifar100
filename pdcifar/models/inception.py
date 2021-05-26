@@ -4,15 +4,14 @@ import paddle
 from paddle import nn
 import paddle.nn.functional as F
 
+from .builder import classifier
+
 
 InceptionOutputs = namedtuple('InceptionOutputs', ['logits', 'aux_logits'])
 InceptionOutputs.__annotations__ = {'logits', 'aux_logits'}
 
-# Script annotations failed with _GoogleNetOutputs = namedtuple ...
-# _InceptionOutputs set here for backwards compat
-_InceptionOutputs = InceptionOutputs
 
-
+@classifier.register_module()
 def inception_v3(**kwargs):
     r"""Inception v3 model architecture from
     `"Rethinking the Inception Architecture for Computer Vision" <http://arxiv.org/abs/1512.00567>`_.
