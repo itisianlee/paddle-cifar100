@@ -11,6 +11,7 @@ To explore the limit performance of opensource classifier on [CIFAR100](https://
 
 # Repo dynamic
 ## Relate update
+- 2021.05.27: Releases the training of the MnasNet model
 - 2021.04.24: Releases the training of the ResNeXt model
 - 2021.04.16: Releases the training of the shufflenet series model
 - 2021.04.09: Releases the training of the vgg model
@@ -50,6 +51,7 @@ Some nets might get the best result from other hyperparameters, You can set up o
 |swin transformer tiny|6.93M|0.5303|0.7833|swin_transformer.yml|
 |resnext50 32x4d|23.2M|0.7744|0.934|common.yml|
 |resnext101 32x8d|87.1M|0.7938|0.9407|common.yml|
+|mnasnet 1.0|3.3M|0.7039|0.8914|mnasnet.yml|
 
 ## Test curve
 `csv_dir` download from VisualDL scalar
@@ -78,3 +80,4 @@ VisualDL display details:
 - ShuffleNet V2: [ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design](https://arxiv.org/abs/1807.11164)
 - Swin Transformer: [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/pdf/2103.14030.pdf)
 - ResneXt: [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/abs/1611.05431)
+- MnasNet: [MnasNet: Platform-Aware Neural Architecture Search for Mobile](https://arxiv.org/pdf/1807.11626.pdf)
