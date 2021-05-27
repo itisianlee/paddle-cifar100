@@ -105,7 +105,7 @@ class MNASNet(nn.Layer):
             nn.BatchNorm2D(depths[1], momentum=_BN_MOMENTUM),
             # MNASNet blocks: stacks of inverted residuals.
             _stack(depths[1], depths[2], 3, 2, 3, 3, _BN_MOMENTUM),
-            _stack(depths[2], depths[3], 5, 2, 3, 3, _BN_MOMENTUM),
+            _stack(depths[2], depths[3], 5, 1, 3, 3, _BN_MOMENTUM),
             _stack(depths[3], depths[4], 5, 2, 6, 3, _BN_MOMENTUM),
             _stack(depths[4], depths[5], 3, 1, 6, 2, _BN_MOMENTUM),
             _stack(depths[5], depths[6], 5, 2, 6, 4, _BN_MOMENTUM),
